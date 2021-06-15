@@ -1,0 +1,2 @@
+
+{'_type': ['unknown field'], 'associated_parts': ['must be of string type'], 'image_urls': ['must be of string type'], 'overview': ['must be of string type'], 'stock_count': ['must be of integer type'], 'unit_price': ['must be of integer type']}

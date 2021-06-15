@@ -1,0 +1,80 @@
+Pytest Output:
+C:\Users\PycharmProjects\pytest_demo>py.test test_case-1_DataValidation.py  -v -s
+============================================================================================== test session starts ===============================================================================================
+platform win32 -- Python 3.9.5, pytest-6.2.4, py-1.10.0, pluggy-0.13.1 -- C:\Users\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\PycharmProjects\pytest_demo
+collected 4 items
+
+test_case-1_DataValidation.py::test_check_total_columns Number of columns present in extracted data file : 16
+Number of columns expected in data file : 17
+There is mismatch in number of columns
+Number of columns missing in extracted csv : 1
+FAILED
+test_case-1_DataValidation.py::test_check_duplicate_entries_in_columns Columns : ['file_urls', 'information', 'manufacturer', 'manufacturer_part', 'origin_country', 'overview', 'primary_image_url', 'title', 'trail', 'unit_price', 'url']  --> have duplicate entries
+Columns : ['_type', 'associated_parts', 'files', 'image_urls', 'stock_count']  --> have unique entries
+FAILED
+test_case-1_DataValidation.py::test_check_missing_columns_names Below column names are not matched in the extracted csv file
+['brand', 'tariff_number']
+Below column names are extra in the extracted csv file(these column/s are not found in expected column list)
+['_type']
+column_names in extracted_data : ['_type', 'associated_parts', 'file_urls', 'files', 'image_urls', 'information', 'manufacturer', 'manufacturer_part', 'origin_country', 'overview', 'primary_image_url', 'stock_count', 'title', 'trail', 'unit_price', 'url']
+Expected column_names: ['associated_parts', 'brand', 'file_urls', 'files', 'image_urls', 'information', 'manufacturer', 'manufacturer_part', 'origin_country', 'overview', 'primary_image_url', 'stock_count', 'tariff_number', 'title', 'trail', 'unit_price', 'url']
+FAILED
+test_case-1_DataValidation.py::test_check_missing_values Columns : ['associated_parts', 'image_urls', 'overview', 'stock_count', 'unit_price']  --> missing data for some rows
+Columns : ['_type', 'file_urls', 'files', 'information', 'manufacturer', 'manufacturer_part', 'origin_country', 'primary_image_url', 'title', 'trail', 'url']  --> data is present for all the rows
+FAILED
+
+
+============================================================================================ short test summary info =============================================================================================
+FAILED test_case-1_DataValidation.py::test_check_total_columns - AssertionError: Test failed as the column count doesnt match
+FAILED test_case-1_DataValidation.py::test_check_duplicate_entries_in_columns - AssertionError: Test failed as 'title/product name' column has duplicate data
+FAILED test_case-1_DataValidation.py::test_check_missing_columns_names - AssertionError: Test Failed as some column names are missing)
+FAILED test_case-1_DataValidation.py::test_check_missing_values - AssertionError: Test failed as data is missing for some columns
+========================================================================================== 4 failed, 1 warning in 1.00s
+
+C:\Users\PycharmProjects\venv\Scripts\python.exe C:\Users\PycharmProjects\venv\Scripts\test_case-5_DataValidation.py
+Test execution is completed
+Please check file 'datatype_error_in_column.txt' for datatype errors -(File location is same as script location)
+
+Process finished with exit code 0
+
+
+
+**********************************************************************************************************************************************************
+
+Pycharm Console putput:
+============================= test session starts =============================
+collecting ... collected 4 items
+
+test_case-1_DataValidation.py::test_check_total_columns FAILED           [ 25%]Number of columns present in extracted data file : 16
+Number of columns expected in data file : 17
+There is mismatch in number of columns
+Number of columns missing in extracted csv : 1
+
+AssertionError: Test failed as the column count doesnt match
+
+
+test_case-1_DataValidation.py::test_check_missing_columns_names FAILED   [ 75%]Below column names are not matched in the extracted csv file
+['brand', 'tariff_number']
+Below column names are extra in the extracted csv file(these column/s are not found in expected column list)
+['_type']
+column_names in extracted_data : ['_type', 'associated_parts', 'file_urls', 'files', 'image_urls', 'information', 'manufacturer', 'manufacturer_part', 'origin_country', 'overview', 'primary_image_url', 'stock_count', 'title', 'trail', 'unit_price', 'url'] 
+Expected column_names: ['associated_parts', 'brand', 'file_urls', 'files', 'image_urls', 'information', 'manufacturer', 'manufacturer_part', 'origin_country', 'overview', 'primary_image_url', 'stock_count', 'tariff_number', 'title', 'trail', 'unit_price', 'url'] 
+
+AssertionError: Test Failed as some column names are missing)
+
+test_case-1_DataValidation.py:95: AssertionError
+
+test_case-1_DataValidation.py::test_check_missing_values FAILED          [100%]Columns : ['associated_parts', 'file_urls', 'files', 'image_urls', 'information', 'origin_country', 'overview', 'primary_image_url', 'stock_count', 'unit_price']  --> missing data for some rows
+Columns : ['_type', 'manufacturer', 'manufacturer_part', 'title', 'trail', 'url']  --> data is present for all the rows
+
+AssertionError: Test failed as data is missing for some columns
+
+test_case-1_DataValidation.py:95: AssertionError
+
+test_case-1_DataValidation.py::test_check_missing_values FAILED          [100%]Columns : ['associated_parts', 'file_urls', 'files', 'image_urls', 'information', 'origin_country', 'overview', 'primary_image_url', 'stock_count', 'unit_price']  --> missing data for some rows
+Columns : ['_type', 'manufacturer', 'manufacturer_part', 'title', 'trail', 'url']  --> data is present for all the rows
+
+AssertionError: Test failed as data is missing for some columns
+

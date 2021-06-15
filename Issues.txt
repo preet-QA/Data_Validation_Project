@@ -1,0 +1,73 @@
+Quality issues:
+Issue#1-Number of columns in extracted file is not as expected (number of affected items : 1column, severity :HIGH)
+
+Issue#2-Duplicate values are present for column-Title (number of affected items :20 , severity :Medium)
+
+Issue#3-Expected columns are missing in extracted file( severity : CRITICAL)
+
+Issue#4-Data is missing for some columns( severity : HIGH)
+
+Issue#5-Datatypes of the columns in extracted file is not as expected (severity :CRITICAL)
+
+Issue#6-Unknown field "_type" is inlcuded in file is not as expected (number of affected items : 2425, severity :HIGH)
+
+Issue#7-Price are not displayed correctly ( severity :Medium)
+
+Issue#8-Image url is missing for products (number of affected items :2215 , severity :HIGH)
+
+Issue#9-Price is missing for products (number of affected items : 616, severity :HIGH)
+
+Issue#10-Origin country is missing for some products (number of affected items : 91,severity :Medium)
+
+Issue#11-when searched with product url,products are not found (severity :Medium)
+Error:Sorry, we couldn't find the page you were looking for
+test data:
+url = https://uk.farnell.com/hammond/1584t4dh6/power-strip-4-outlets-15a-120v/dp/7997840
+title =1584T4DH6 HAMMOND, POWER STRIP, 4 OUTLETS, 15A, 120V
+origin_country ='Canada'
+
+url = https://uk.farnell.com/infomart-it-solutions/pem3124c/poe-pd-module-24v/dp/2425067
+title =PEM3124C INFOMART IT SOLUTIONS, POE. PD MODULE, 24V
+origin_country ='Canada'
+
+Issue#12-There is mismatch in the price on website and in the extracted csv (severity : HIGH)
+test data:
+url = https://uk.farnell.com/infomart-it-solutions/pem1512a-42/poe-pd-module-12v/dp/2425059
+title =PEM1512A-42 INFOMART IT SOLUTIONS, Self contained Power Over Ethernet PD Module, 10W, 5V
+origin_country ='Canada'
+Unit_price in extracted data = 1081 (considering this is a float value)
+Unit_price on website = £12.77
+
+url = https://uk.farnell.com/tallysman-wireless/32-0151-0/mod-tw151-1-to-2-l-band-spillter/dp/2056671
+title =32-0151-0 TALLYSMAN WIRELESS, Signal Splitter, Professional Grade DC blocked, 1 to 2 L-Band
+origin_country ='Canada'
+Unit_price in extracted data = 7450 (considering this is a float value)
+Unit_price on website = £106.05 
+
+Issue#13-columns 'brand', 'tariff_number' are missing in the extracted CSV file (number of affected items :2425,severity :Critical
+
+Issue#14-unknown character "Â" is introduced when there is any exponential items such ( degree/sqaure -70°C ,4mm² etc) (severity :Medium)
+test data:
+title = 4747.0000 SCHURTER, Power Outlet Strip, IEC Distribution Unit, 4 Outlets, IEC 60320 C13, 15 A, 250 V
+overview column
+Expected : -25 to 70°C Operating temperature
+Actual :  -25 to 70Â°C Operating temperature
+
+title = 4747.0000 SCHURTER, Power Outlet Strip, IEC Distribution Unit, 4 Outlets, IEC 60320 C13, 15 A, 250 V
+overview column
+Expected : For up to 5 core 4mm² cores using lever arm connectors
+Actual : For up to 5 core 4mmÂ² cores using lever arm connectors
+
+
+Issue#15-Manucturer part name should retrieve complete code(spaces and . is skipped(severity :Medium)
+test data:
+url = https://uk.farnell.com/texas-instruments/wl1837modgimoct/bluetooth-module-v4-1-100mbps/dp/2769438RL
+Expected : WL1837MODGIMOCT .
+Actual :  WL1837MODGIMOCT
+
+Issue#16-Product information is missing for some products(severity :Medium)
+Test data:
+title: MAX6369KA+T MAXIM INTEGRATED PRODUCTS, USB Interface, 2.5 V, 5.5 V
+url :https://uk.farnell.com/maxim-integrated-products/max6369ka-t/supervisor-watchdog-0-001-0-1s/dp/2519138
+>> Threshold Voltage:, No. of Supervisors / Monitors:,Delay Time:,Operating Temperature Min:, Operating Temperature Max: 
+above mentioned data is missing
